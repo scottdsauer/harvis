@@ -25,7 +25,7 @@ A Home Assistant theme and animated Lovelace card inspired by J.A.R.V.I.S. from 
 
 1. Open HACS → **Frontend**
 2. Click the three-dot menu → **Custom repositories**
-3. Add `https://github.com/YOUR_USERNAME/harvis` with category **Lovelace**
+3. Add `https://github.com/scottdsauer/harvis` with category **Lovelace**
 4. Search for **HARVIS** and install
 5. Add the theme (see below)
 

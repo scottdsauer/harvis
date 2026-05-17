@@ -343,4 +343,5 @@ window.customCards.push({
   description: 'Animated JARVIS-inspired arc reactor card. Displays time or a sensor entity.',
   preview: true,
   documentationURL: 'https://github.com/scottdsauer/harvis',
+
 });
