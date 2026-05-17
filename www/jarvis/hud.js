@@ -218,7 +218,7 @@ function drawRings() {
   ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   if (uiState === 'idle') {
     ctx.fillStyle = pulseColor; ctx.globalAlpha = .92;
-    ctx.font = 'bold 13px Courier New'; ctx.fillText('J.A.R.V.I.S.', cx, cy - 9);
+    ctx.font = 'bold 13px Courier New'; ctx.fillText('H.A.R.V.I.S.', cx, cy - 9);
     ctx.font = '8px Courier New'; ctx.globalAlpha = .5; ctx.fillStyle = '#4a8fa8';
     ctx.fillText('CLICK TO START', cx, cy + 8);
   } else if (uiState === 'floors') {
