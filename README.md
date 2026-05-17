@@ -1,4 +1,4 @@
-# J.A.R.V.I.S. Home Assistant Theme
+# H.A.R.V.I.S. Home Assistant Theme
 
 A holographic HUD-style theme and navigation dashboard for Home Assistant, inspired by the Iron Man / J.A.R.V.I.S. interface.
 
