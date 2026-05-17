@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>J.A.R.V.I.S.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%;background:#020b14;overflow:hidden}
+  body{display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono','Courier New',monospace}
+  #wrap{position:relative;width:640px;height:640px}
+  canvas{position:absolute;top:0;left:0;width:640px;height:640px;cursor:pointer}
+  #clock{position:absolute;top:14px;left:50%;transform:translateX(-50%);color:#4a8fa8;font-size:10px;letter-spacing:.15em;white-space:nowrap}
+  #status{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.16em;white-space:nowrap;transition:color .4s;color:#1a5a7a}
+  #hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:#0d3a5e;font-size:8px;letter-spacing:.12em;white-space:nowrap}
+  .node{position:absolute;transform:translate(-50%,-50%);pointer-events:all;cursor:pointer;border-radius:4px;font-family:'Share Tech Mono','Courier New',monospace;letter-spacing:.12em;text-align:center;transition:all .2s;border:1px solid transparent}
+  .fnode{font-size:11px;padding:9px 16px}
+  .rnode{font-size:9px;padding:6px 11px}
+  svg.lines{position:absolute;top:0;left:0;width:640px;height:640px;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="640" height="640"></canvas>
+  <svg class="lines" id="lines"></svg>
+  <div id="clock"></div>
+  <div id="status">SYSTEM NOMINAL · ALL SECTORS ONLINE</div>
+  <div id="hint">CLICK CENTER TO NAVIGATE</div>
+</div>
+<script src="hud.js"></script>
+</body>
+</html>

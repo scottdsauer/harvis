@@ -1,0 +1,30 @@
+# J.A.R.V.I.S. Main HUD Panel
+# -------------------------------------------------------
+# 1. Create a new dashboard with Panel Mode: ON
+# 2. Add a Manual Card and paste this entire file
+# 3. Copy www/jarvis/ folder to config/www/jarvis/
+# -------------------------------------------------------
+type: custom:button-card
+styles:
+  card:
+    - background: "#020b14"
+    - border: none
+    - border-radius: 0
+    - padding: 0
+    - margin: 0
+    - width: 100vw
+    - height: 100vh
+    - display: flex
+    - align-items: center
+    - justify-content: center
+  name:
+    - display: none
+custom_fields:
+  hud: >
+    [[[
+      return `<iframe
+        src="/local/jarvis/hud.html"
+        style="width:640px;height:640px;border:none;background:transparent;"
+        frameborder="0"
+      ></iframe>`;
+    ]]]

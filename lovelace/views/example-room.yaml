@@ -1,0 +1,31 @@
+# Example room view — duplicate and customize per room
+# Set path to match the room slug, e.g. /lovelace/kitchen
+# Wire the room click in hud.js to navigate here:
+#   window.top.location.href = '/lovelace/kitchen';
+
+title: Kitchen
+path: kitchen
+icon: mdi:countertop
+theme: jarvis
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        name: KITCHEN
+        styles:
+          card:
+            - background: transparent
+            - border: none
+            - color: "#00c4ff"
+            - font-family: "'Share Tech Mono','Courier New',monospace"
+            - letter-spacing: 0.2em
+            - font-size: 18px
+            - padding-bottom: 8px
+
+      # Add your room entities below
+      - type: light
+        entity: light.kitchen           # replace with your entity ID
+        name: Kitchen Lights
+
+      - type: thermostat
+        entity: climate.main            # replace with your entity ID

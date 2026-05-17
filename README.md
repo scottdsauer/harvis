@@ -1,21 +1,29 @@
-# HARVIS
+# J.A.R.V.I.S. Home Assistant Theme
 
-> **H**ome **A**ssistant **R**eal-time **V**isual **I**ntelligence **S**ystem
+A holographic HUD-style theme and navigation dashboard for Home Assistant, inspired by the Iron Man / J.A.R.V.I.S. interface.
 
-A Home Assistant theme and animated Lovelace card. Dark navy background, glowing cyan accents, animated HUD rings with rotating layers, scanner sweep, and a dominant glowing center ring.
+![JARVIS HUD Preview](docs/screenshots/preview.png)
 
 ---
 
 ## Features
 
-- Full HA UI theme — sidebar, cards, inputs, toggles, energy dashboard
-- `harvis-card` — animated arc reactor with:
-  - Multiple counter-rotating rings with tick marks and arc segments
-  - Scanner sweep beam
-  - Pulsing arc reactor core with hexagonal inner geometry
-  - Live clock display or sensor entity value
-  - Configurable size, color, and speed
-- Example Lovelace dashboard layout
+- Concentric animated HUD rings with arc reactor glow
+- Click-to-navigate dashboard: Center → Floors → Rooms
+- Per-floor color identity (Basement: amber · First Floor: cyan · Second Floor: purple)
+- Full Home Assistant theme (cards, sliders, toggles, sidebar, inputs)
+- Monospace HUD typography via Share Tech Mono
+- Optimized for wall-mounted tablets
+
+---
+
+## Requirements
+
+| Dependency | Install via |
+|---|---|
+| [card-mod](https://github.com/thomasloven/lovelace-card-mod) | HACS → Frontend |
+| [button-card](https://github.com/custom-cards/button-card) | HACS → Frontend |
+| [browser-mod](https://github.com/thomasloven/hacs-browser_mod) | HACS → Integration *(optional, for room popups)* |
 
 ---
 
@@ -23,79 +31,109 @@ A Home Assistant theme and animated Lovelace card. Dark navy background, glowing
 
 ### Via HACS (recommended)
 
-1. Open HACS → **Frontend**
+1. Open HACS → Frontend
 2. Click the three-dot menu → **Custom repositories**
-3. Add `https://github.com/scottdsauer/harvis` with category **Lovelace**
-4. Search for **HARVIS** and install
-5. Add the theme (see below)
+3. Add this repo URL, category: **Theme**
+4. Install **JARVIS Theme**
+5. Restart Home Assistant
 
 ### Manual
 
-1. Download `harvis-card.js` and place it in `/config/www/harvis/harvis-card.js`
-2. Copy `themes/harvis.yaml` into `/config/themes/harvis.yaml`
-3. In `configuration.yaml` make sure you have:
+1. Copy `themes/jarvis/jarvis.yaml` into your `config/themes/jarvis/` folder
+2. Copy `www/jarvis/` into your `config/www/jarvis/` folder
+3. Add to `configuration.yaml`:
    ```yaml
    frontend:
      themes: !include_dir_merge_named themes
    ```
-4. Add the resource to Lovelace:
-   - **Settings → Dashboards → Resources → Add Resource**
-   - URL: `/local/harvis/harvis-card.js`
-   - Type: `JavaScript module`
-5. Restart Home Assistant
+4. Restart Home Assistant
 
 ---
 
-## Activate the Theme
+## Dashboard Setup
 
-**Profile → Theme → HARVIS**
+1. Create a new dashboard in HA → set **Panel mode: ON**
+2. Add a **Manual card** and paste the contents of `lovelace/panels/jarvis-main.yaml`
+3. Set your profile theme to **jarvis**
 
-Or set it as default in `configuration.yaml`:
-```yaml
-frontend:
-  themes: !include_dir_merge_named themes
-  extra_module_url:
-    - /local/harvis/harvis-card.js
+### Adding the Google Font (recommended)
+
+Add to your dashboard resources (Settings → Dashboards → your dashboard → Resources):
+
+```
+https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap
+```
+Type: `CSS stylesheet`
+
+---
+
+## Customization
+
+### Changing floor/room names
+
+Edit the `FLOORS` array at the top of `www/jarvis/hud.js`:
+
+```js
+const FLOORS = [
+  {
+    id: 'basement',
+    label: 'BASEMENT',
+    angle: 210,
+    color: '#f59e0b',
+    rgb: '245,158,11',
+    rooms: ['Basement Family Room', 'Basement Workout Room', 'Basement Unfinished Area']
+  },
+  // ... etc
+];
+```
+
+### Wiring rooms to HA views
+
+In `www/jarvis/hud.js`, find the room click handler and add your navigation path:
+
+```js
+// navigate to a lovelace view
+window.location.href = '/lovelace/' + room.toLowerCase().replace(/\s+/g, '-');
+
+// OR fire a browser-mod popup
+window.hassConnection.then(({hass}) => {
+  hass.callService('browser_mod', 'popup', { title: room });
+});
 ```
 
 ---
 
-## Using the Card
+## File Structure
 
-### Basic (shows live clock)
-```yaml
-type: custom:harvis-card
-title: HARVIS
-show_time: true
 ```
-
-### Display a sensor entity
-```yaml
-type: custom:harvis-card
-title: CPU TEMP
-entity: sensor.processor_temperature
+jarvis-ha-theme/
+├── hacs.json
+├── README.md
+├── themes/
+│   └── jarvis/
+│       └── jarvis.yaml          # Full HA theme
+├── lovelace/
+│   ├── panels/
+│   │   └── jarvis-main.yaml     # Main HUD panel card
+│   └── views/
+│       └── example-room.yaml    # Example room view template
+├── www/
+│   └── jarvis/
+│       └── hud.js               # HUD navigation logic (standalone JS)
+└── docs/
+    └── screenshots/
+        └── preview.png          # Add your own screenshot here
 ```
-
-### Full configuration
-```yaml
-type: custom:harvis-card
-title: HARVIS         # Text label above the arc reactor
-show_time: true       # Show live clock in center (default: true)
-entity: sensor.xxx    # Entity to display — overrides show_time
-size: 300             # Card diameter in px (default: 300)
-color: "#00d4ff"      # Primary color (default: #00d4ff)
-speed: 1              # Animation speed multiplier (default: 1)
-```
-
----
-
-## Requirements
-
-- Home Assistant 2023.1+
-- HACS (for easy install) or manual resource registration
 
 ---
 
 ## License
 
-MIT — free to use, modify, and distribute.
+MIT — free to use, modify, and share. Attribution appreciated but not required.
+
+---
+
+## Credits
+
+Built with Home Assistant, card-mod, and button-card.
+Inspired by the Marvel Cinematic Universe J.A.R.V.I.S. interface.

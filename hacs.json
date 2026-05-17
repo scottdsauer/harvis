@@ -1,6 +1,9 @@
 {
-  "name": "HARVIS",
+  "name": "JARVIS Theme",
+  "description": "A J.A.R.V.I.S. / Iron Man inspired theme for Home Assistant with holographic HUD navigation dashboard.",
   "render_readme": true,
-  "filename": "harvis-card.js",
-  "homeassistant": "2023.1.0"
+  "domains": ["frontend"],
+  "homeassistant": "2023.0.0",
+  "country": [],
+  "iot_class": "local_push"
 }

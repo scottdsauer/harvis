@@ -1,0 +1,212 @@
+# ============================================================
+#  J.A.R.V.I.S. Theme for Home Assistant
+#  Iron Man / Arc Reactor aesthetic
+#  Target: wall-mounted tablet
+#
+#  Install:
+#    1. Place this file at: config/themes/jarvis/jarvis.yaml
+#    2. Add to configuration.yaml:
+#         frontend:
+#           themes: !include_dir_merge_named themes
+#    3. Restart Home Assistant
+#    4. Set theme in your Profile or per-dashboard
+#
+#  Required HACS add-ons:
+#    - card-mod         (CSS overrides)
+#    - button-card      (custom styled buttons/cards)
+#
+#  Optional:
+#    - Share Tech Mono font (Google Fonts) for a sharper HUD feel
+#      Add to configuration.yaml resources:
+#        - url: https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap
+#          type: css
+# ============================================================
+
+jarvis:
+
+  # ----------------------------------------------------------
+  # BACKGROUNDS
+  # ----------------------------------------------------------
+
+  # Main app background — deep navy black
+  primary-background-color:        "#050e1a"
+
+  # Card / panel surfaces
+  card-background-color:            "#0a1e30"
+  secondary-background-color:       "#081624"
+  divider-color:                    "#0d3a5e"
+
+  # Sidebar
+  sidebar-background-color:         "#050e1a"
+  sidebar-selected-background-color:"#0a1e30"
+  sidebar-icon-color:               "#4a8fa8"
+  sidebar-selected-icon-color:      "#00c4ff"
+  sidebar-text-color:               "#4a8fa8"
+  sidebar-selected-text-color:      "#a8d8f0"
+
+  # ----------------------------------------------------------
+  # TEXT
+  # ----------------------------------------------------------
+
+  primary-text-color:               "#a8d8f0"
+  secondary-text-color:             "#4a8fa8"
+  text-primary-color:               "#a8d8f0"
+  disabled-text-color:              "#1e4a6a"
+
+  # Card title / entity name
+  paper-item-icon-color:            "#0088cc"
+  paper-item-icon-active-color:     "#00c4ff"
+
+  # ----------------------------------------------------------
+  # ACCENT & INTERACTIVE
+  # ----------------------------------------------------------
+
+  # Arc reactor blue — primary action color
+  primary-color:                    "#0088cc"
+  accent-color:                     "#00c4ff"
+
+  # ----------------------------------------------------------
+  # STATE COLORS
+  # ----------------------------------------------------------
+
+  # Active / on
+  state-active-color:               "#00c4ff"
+  state-on-color:                   "#0088cc"
+
+  # Warning — gold/amber
+  state-unavailable-color:          "#c8932a"
+  warning-color:                    "#c8932a"
+  label-badge-yellow:               "#c8932a"
+
+  # Error / alert — red
+  error-color:                      "#cc2233"
+  label-badge-red:                  "#cc2233"
+
+  # OK / nominal — muted blue-green (not distracting)
+  success-color:                    "#1a8fa8"
+  label-badge-green:                "#1a8fa8"
+
+  # ----------------------------------------------------------
+  # TYPOGRAPHY
+  # ----------------------------------------------------------
+
+  # Monospace HUD font. Falls back gracefully if not installed.
+  # To enable Share Tech Mono, add the Google Fonts resource (see header).
+  primary-font-family:    "'Share Tech Mono', 'Courier New', 'Lucida Console', monospace"
+
+  # ----------------------------------------------------------
+  # HEADER / TOOLBAR
+  # ----------------------------------------------------------
+
+  app-header-background-color:      "#050e1a"
+  app-header-text-color:            "#00c4ff"
+  app-header-selection-bar-color:   "#0088cc"
+  app-header-edit-background-color: "#081624"
+
+  # ----------------------------------------------------------
+  # CARDS
+  # ----------------------------------------------------------
+
+  # Card border — subtle blue-steel
+  ha-card-border-color:             "#0d4a7a"
+  ha-card-border-width:             "1px"
+  ha-card-border-radius:            "4px"
+  ha-card-box-shadow:               "none"
+
+  # ----------------------------------------------------------
+  # SWITCHES & TOGGLES
+  # ----------------------------------------------------------
+
+  switch-checked-button-color:      "#00c4ff"
+  switch-checked-track-color:       "#0d4a7a"
+  switch-unchecked-button-color:    "#1a3a50"
+  switch-unchecked-track-color:     "#081624"
+
+  # ----------------------------------------------------------
+  # SLIDERS (brightness, volume, climate)
+  # ----------------------------------------------------------
+
+  paper-slider-active-color:        "#0088cc"
+  paper-slider-secondary-color:     "#0d3a5e"
+  paper-slider-knob-color:          "#00c4ff"
+  paper-slider-knob-start-color:    "#0088cc"
+  paper-slider-pin-color:           "#00c4ff"
+  paper-slider-container-color:     "#0d3a5e"
+
+  # ----------------------------------------------------------
+  # BADGES
+  # ----------------------------------------------------------
+
+  label-badge-background-color:     "#0a1e30"
+  label-badge-text-color:           "#a8d8f0"
+  label-badge-blue:                 "#0088cc"
+
+  # ----------------------------------------------------------
+  # INPUTS & FORMS
+  # ----------------------------------------------------------
+
+  input-fill-color:                 "#081624"
+  input-ink-color:                  "#a8d8f0"
+  input-label-ink-color:            "#4a8fa8"
+  input-idle-line-color:            "#0d3a5e"
+  input-hover-line-color:           "#0088cc"
+  input-focused-label-ink-color:    "#00c4ff"
+  input-focused-line-color:         "#0088cc"
+
+  # ----------------------------------------------------------
+  # SCROLLBARS
+  # ----------------------------------------------------------
+
+  scrollbar-thumb-color:            "#0d3a5e"
+
+  # ----------------------------------------------------------
+  # LOVELACE EDITOR UI (when editing dashboard)
+  # ----------------------------------------------------------
+
+  mdc-theme-surface:                "#081624"
+  mdc-theme-background:             "#050e1a"
+  mdc-theme-on-surface:             "#a8d8f0"
+  mdc-theme-primary:                "#0088cc"
+  mdc-theme-secondary:              "#00c4ff"
+  mdc-text-field-ink-color:         "#a8d8f0"
+  mdc-text-field-label-ink-color:   "#4a8fa8"
+  mdc-text-field-idle-line-color:   "#0d3a5e"
+  mdc-text-field-hover-line-color:  "#0088cc"
+
+  # ----------------------------------------------------------
+  # CUSTOM card-mod GLOBAL STYLES
+  #
+  # Requires card-mod installed via HACS.
+  # Adds: monospace font enforcement, HUD card border treatment,
+  # active entity glow, and header uppercase tracking.
+  # ----------------------------------------------------------
+
+  card-mod-theme: |
+    * {
+      --ha-card-border-radius: 4px;
+    }
+    ha-card {
+      border: 1px solid #0d4a7a !important;
+      background: #0a1e30 !important;
+      font-family: 'Share Tech Mono', 'Courier New', monospace !important;
+      letter-spacing: 0.04em;
+    }
+    .card-header {
+      font-family: 'Share Tech Mono', 'Courier New', monospace !important;
+      color: #00c4ff !important;
+      text-transform: uppercase;
+      font-size: 11px !important;
+      letter-spacing: 0.12em;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #0d3a5e;
+    }
+    state-badge {
+      color: #0088cc !important;
+    }
+    .info {
+      color: #a8d8f0 !important;
+      font-family: 'Share Tech Mono', 'Courier New', monospace !important;
+    }
+    .secondary {
+      color: #4a8fa8 !important;
+    }
