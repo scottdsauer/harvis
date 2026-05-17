@@ -2,7 +2,7 @@
 
 **H**ome **A**ssistant **R**eal-time **V**isual **I**ntelligence **S**ystem
 
-A Home Assistant theme and custom card inspired by J.A.R.V.I.S. from the Iron Man films.
+A Home Assistant theme and custom card featuring a cinematic HUD aesthetic with animated concentric rings, glowing cyan accents, and a dominant center ring.
 
 Features a dark blue HUD aesthetic with animated arc reactor card, glowing cyan accents, and a full UI theme to match.
 

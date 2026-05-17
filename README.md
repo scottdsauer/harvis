@@ -2,7 +2,7 @@
 
 > **H**ome **A**ssistant **R**eal-time **V**isual **I**ntelligence **S**ystem
 
-A Home Assistant theme and animated Lovelace card inspired by J.A.R.V.I.S. from the Iron Man films. Dark navy background, glowing cyan accents, animated arc reactor with rotating rings and scanner sweep.
+A Home Assistant theme and animated Lovelace card. Dark navy background, glowing cyan accents, animated HUD rings with rotating layers, scanner sweep, and a dominant glowing center ring.
 
 ---
 
