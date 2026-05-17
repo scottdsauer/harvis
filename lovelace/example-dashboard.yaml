@@ -1,0 +1,53 @@
+title: HARVIS
+views:
+  - title: Arc Reactor
+    icon: mdi:atom
+    path: harvis
+    background: var(--primary-background-color)
+    cards:
+      # ── Hero arc reactor (time display) ─────────────────────
+      - type: custom:harvis-card
+        title: HARVIS
+        show_time: true
+        size: 320
+        color: "#00d4ff"
+        speed: 1
+
+      # ── Arc reactor showing a sensor entity ─────────────────
+      # Uncomment and replace entity with your own sensor
+      # - type: custom:harvis-card
+      #   title: CPU TEMP
+      #   entity: sensor.processor_temperature
+      #   size: 260
+      #   color: "#00d4ff"
+      #   speed: 1.5
+
+      # ── System status row ───────────────────────────────────
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            entity: sensor.cpu_percent          # replace with your entity
+            name: CPU
+            icon: mdi:cpu-64-bit
+          - type: entity
+            entity: sensor.memory_use_percent   # replace with your entity
+            name: RAM
+            icon: mdi:memory
+          - type: entity
+            entity: sensor.disk_use_percent     # replace with your entity
+            name: DISK
+            icon: mdi:harddisk
+
+      # ── Glanceable entity grid ──────────────────────────────
+      - type: glance
+        title: STATUS
+        columns: 4
+        entities:
+          - entity: light.living_room           # replace with your entities
+            name: Lights
+          - entity: switch.main_switch
+            name: Power
+          - entity: sensor.temperature
+            name: Temp
+          - entity: sensor.humidity
+            name: Humid

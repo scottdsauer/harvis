@@ -1,0 +1,96 @@
+harvis:
+  # ── Core Palette ──────────────────────────────────────────────
+  primary-color: "#00d4ff"
+  accent-color: "#0066ff"
+  primary-background-color: "#050a14"
+  secondary-background-color: "#0a1020"
+  card-background-color: "#0d1626"
+
+  # ── Text ──────────────────────────────────────────────────────
+  primary-text-color: "#cce8ff"
+  secondary-text-color: "#5a9ec2"
+  text-primary-color: "#cce8ff"
+  disabled-text-color: "#1e3a52"
+  label-badge-text-color: "#050a14"
+
+  # ── Header ────────────────────────────────────────────────────
+  app-header-background-color: "#050a14"
+  app-header-text-color: "#00d4ff"
+  app-header-selection-bar-color: "#00d4ff"
+  app-header-edit-text-color: "#00d4ff"
+
+  # ── Sidebar ───────────────────────────────────────────────────
+  sidebar-background-color: "#070e1a"
+  sidebar-text-color: "#5a9ec2"
+  sidebar-selected-text-color: "#00d4ff"
+  sidebar-icon-color: "#1e6080"
+  sidebar-selected-icon-color: "#00d4ff"
+
+  # ── Cards ─────────────────────────────────────────────────────
+  ha-card-background: "#0d1626"
+  ha-card-border-radius: "6px"
+  ha-card-border-width: "1px"
+  ha-card-border-color: "rgba(0, 212, 255, 0.2)"
+  ha-card-box-shadow: "0 0 12px rgba(0, 212, 255, 0.08), inset 0 0 1px rgba(0, 212, 255, 0.15)"
+
+  # ── States ────────────────────────────────────────────────────
+  state-icon-color: "#1e6080"
+  state-on-color: "#00d4ff"
+  state-off-color: "#0d2a3d"
+  state-active-color: "#00d4ff"
+  state-inactive-color: "#0d2a3d"
+  state-unavailable-color: "#1e3a52"
+
+  # ── Badges ────────────────────────────────────────────────────
+  label-badge-background-color: "#0a1020"
+  label-badge-red: "#ff3b3b"
+  label-badge-green: "#00d4ff"
+  label-badge-yellow: "#ffaa00"
+  label-badge-blue: "#0066ff"
+  label-badge-grey: "#1e3a52"
+
+  # ── Dividers & Borders ────────────────────────────────────────
+  divider-color: "rgba(0, 212, 255, 0.1)"
+
+  # ── Input / Controls ──────────────────────────────────────────
+  input-fill-color: "#0d1626"
+  input-stroke-color: "rgba(0, 212, 255, 0.3)"
+  input-idle-line-color: "rgba(0, 212, 255, 0.2)"
+  input-hover-line-color: "#00d4ff"
+  input-active-line-color: "#00d4ff"
+  input-label-ink-color: "#5a9ec2"
+  input-dropdown-icon-color: "#00d4ff"
+  input-error-color: "#ff3b3b"
+  input-ink-color: "#cce8ff"
+
+  # ── Switches / Toggles ────────────────────────────────────────
+  switch-checked-color: "#00d4ff"
+  switch-unchecked-color: "#1e3a52"
+  switch-checked-track-color: "rgba(0, 212, 255, 0.3)"
+  switch-unchecked-track-color: "rgba(30, 58, 82, 0.5)"
+
+  # ── Sliders ───────────────────────────────────────────────────
+  slider-color: "#00d4ff"
+  slider-secondary-color: "rgba(0, 212, 255, 0.2)"
+  slider-bar-color: "#0d2a3d"
+
+  # ── RGB Values for opacity usage ──────────────────────────────
+  rgb-primary-color: "0, 212, 255"
+  rgb-accent-color: "0, 102, 255"
+  rgb-primary-background-color: "5, 10, 20"
+  rgb-card-background-color: "13, 22, 38"
+
+  # ── Energy Dashboard ──────────────────────────────────────────
+  energy-grid-consumption-color: "#00d4ff"
+  energy-grid-return-color: "#0066ff"
+  energy-battery-in-color: "#00ffcc"
+  energy-battery-out-color: "#00d4ff"
+  energy-solar-color: "#ffaa00"
+  energy-non-fossil-color: "#00ff88"
+  energy-home-color: "#cce8ff"
+
+  # ── Custom HARVIS Properties ──────────────────────────────────
+  harvis-glow-color: "rgba(0, 212, 255, 0.4)"
+  harvis-glow-strong: "rgba(0, 212, 255, 0.8)"
+  harvis-scan-color: "#00d4ff"
+  harvis-ring-color: "rgba(0, 212, 255, 0.6)"
