@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HARVIS Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #020810;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 20px;
+      font-family: 'Orbitron', 'Share Tech Mono', 'Courier New', monospace;
+    }
+
+    h1 {
+      color: #00d4ff;
+      font-size: 13px;
+      letter-spacing: .5em;
+      text-transform: uppercase;
+      opacity: .4;
+      text-shadow: 0 0 10px #00d4ff;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .label {
+      color: #00d4ff;
+      font-size: 10px;
+      letter-spacing: .3em;
+      opacity: .35;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    /* Fake ha-card so the web component renders correctly outside HA */
+    ha-card {
+      display: block;
+      border-radius: 8px;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>H · A · R · V · I · S</h1>
+
+  <div class="grid">
+
+    <!-- Large clock -->
+    <div>
+      <harvis-card id="c1"></harvis-card>
+      <div class="label">CLOCK · DEFAULT</div>
+    </div>
+
+    <!-- Smaller clock -->
+    <div>
+      <harvis-card id="c2"></harvis-card>
+      <div class="label">CLOCK · COMPACT</div>
+    </div>
+
+    <!-- Sensor entity mock -->
+    <div>
+      <harvis-card id="c3"></harvis-card>
+      <div class="label">ENTITY · SENSOR</div>
+    </div>
+
+    <!-- Alternate color -->
+    <div>
+      <harvis-card id="c4"></harvis-card>
+      <div class="label">ALT COLOR · AMBER</div>
+    </div>
+
+  </div>
+
+  <script src="harvis-card.js"></script>
+  <script>
+    // Mock hass with a temperature sensor
+    const mockHass = {
+      states: {
+        'sensor.temperature': {
+          state: '72',
+          attributes: {
+            unit_of_measurement: '°F',
+            friendly_name: 'Living Room',
+          },
+        },
+      },
+    };
+
+    // Card 1 — large clock
+    const c1 = document.getElementById('c1');
+    c1.setConfig({ size: 320, title: 'HARVIS', show_time: true, speed: 1 });
+    c1.hass = mockHass;
+
+    // Card 2 — compact clock
+    const c2 = document.getElementById('c2');
+    c2.setConfig({ size: 220, title: 'HARVIS', show_time: true, speed: 1.4 });
+    c2.hass = mockHass;
+
+    // Card 3 — entity display
+    const c3 = document.getElementById('c3');
+    c3.setConfig({ size: 260, title: 'TEMP', entity: 'sensor.temperature', speed: 0.8 });
+    c3.hass = mockHass;
+
+    // Card 4 — amber variant
+    const c4 = document.getElementById('c4');
+    c4.setConfig({ size: 260, title: 'HARVIS', show_time: true, color: '#ffaa00', speed: 1.2 });
+    c4.hass = mockHass;
+  </script>
+</body>
+</html>

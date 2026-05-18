@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HARVIS Hub Preview</title>
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#020810; }
+    ha-card { display:block; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <harvis-hub id="hub"></harvis-hub>
+
+  <script src="harvis-hub.js"></script>
+  <script>
+    const hub = document.getElementById('hub');
+
+    hub.setConfig({
+      title: 'HARVIS',
+      color: '#00d4ff',
+      floors: [
+        {
+          name: 'First Floor', code: '01',
+          rooms: [
+            { name: 'Family Room',    icon: '🛋', navigate: '/lovelace/family-room' },
+            { name: 'Kitchen',        icon: '🍳', navigate: '/lovelace/kitchen' },
+            { name: 'Master Bedroom', icon: '🛏', navigate: '/lovelace/master-bedroom' },
+            { name: 'Master Bath',    icon: '🚿', navigate: '/lovelace/master-bath' },
+            { name: 'Foyer',          icon: '🚪', navigate: '/lovelace/foyer' },
+            { name: "Scott's Office", icon: '💻', navigate: '/lovelace/office' },
+            { name: 'Dining Room',    icon: '🍽', navigate: '/lovelace/dining-room' },
+            { name: 'Back Deck',      icon: '🌿', navigate: '/lovelace/back-deck' },
+          ],
+        },
+        {
+          name: 'Second Floor', code: '02',
+          rooms: [
+            { name: 'Bedroom 2', icon: '🛏', navigate: '/lovelace/bedroom-2' },
+            { name: 'Bedroom 3', icon: '🛏', navigate: '/lovelace/bedroom-3' },
+            { name: 'Bathroom',  icon: '🚿', navigate: '/lovelace/bathroom' },
+          ],
+        },
+        {
+          name: 'Basement', code: 'B',
+          rooms: [
+            { name: 'Laundry',  icon: '🧺', navigate: '/lovelace/laundry' },
+            { name: 'Storage',  icon: '📦', navigate: '/lovelace/storage' },
+          ],
+        },
+      ],
+    });
+
+    // Mock hass with temperature sensors
+    hub.hass = {
+      states: {
+        'sensor.family_room_temperature':    { state: '73.9', attributes: { unit_of_measurement: ' °F' } },
+        'sensor.kitchen_temperature':         { state: '73.2', attributes: { unit_of_measurement: ' °F' } },
+        'sensor.master_bedroom_temperature':  { state: '71.1', attributes: { unit_of_measurement: ' °F' } },
+        'sensor.master_bath_temperature':     { state: '72.8', attributes: { unit_of_measurement: ' °F' } },
+        'sensor.office_temperature':          { state: '71.9', attributes: { unit_of_measurement: ' °F' } },
+        'sensor.back_deck_temperature':       { state: '68.4', attributes: { unit_of_measurement: ' °F' } },
+      },
+    };
+  </script>
+</body>
+</html>
