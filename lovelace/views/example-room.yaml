@@ -6,7 +6,7 @@
 title: Kitchen
 path: kitchen
 icon: mdi:countertop
-theme: jarvis
+theme: harvis
 cards:
   - type: vertical-stack
     cards:

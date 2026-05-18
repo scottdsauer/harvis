@@ -2,7 +2,7 @@
 
 A holographic HUD-style theme and navigation dashboard for Home Assistant, inspired by the Iron Man / J.A.R.V.I.S. interface.
 
-![JARVIS HUD Preview](docs/screenshots/preview.png)
+![HARVIS HUD Preview](docs/screenshots/preview.png)
 
 ---
 
@@ -31,15 +31,17 @@ A holographic HUD-style theme and navigation dashboard for Home Assistant, inspi
 
 ### Via HACS (recommended)
 
-1. Open HACS → Frontend
+1. Open HACS → **Themes**
 2. Click the three-dot menu → **Custom repositories**
 3. Add this repo URL, category: **Theme**
-4. Install **JARVIS Theme**
+4. Install **H.A.R.V.I.S. Theme**
 5. Restart Home Assistant
+
+> **Note:** HACS only installs the theme YAML. To use the HUD dashboard, you still need to manually copy the `www/jarvis/` folder (see [Dashboard Setup](#dashboard-setup) below).
 
 ### Manual
 
-1. Copy `themes/jarvis/jarvis.yaml` into your `config/themes/jarvis/` folder
+1. Copy `themes/harvis.yaml` into your `config/themes/` folder
 2. Copy `www/jarvis/` into your `config/www/jarvis/` folder
 3. Add to `configuration.yaml`:
    ```yaml
@@ -52,9 +54,10 @@ A holographic HUD-style theme and navigation dashboard for Home Assistant, inspi
 
 ## Dashboard Setup
 
-1. Create a new dashboard in HA → set **Panel mode: ON**
-2. Add a **Manual card** and paste the contents of `lovelace/panels/jarvis-main.yaml`
-3. Set your profile theme to **jarvis**
+1. Copy `www/jarvis/` to `config/www/jarvis/` (required even with HACS install)
+2. Create a new dashboard in HA → set **Panel mode: ON**
+3. Add a **Manual card** and paste the contents of `lovelace/panels/jarvis-main.yaml`
+4. Set your profile theme to **harvis**
 
 ### Adding the Google Font (recommended)
 
@@ -64,6 +67,24 @@ Add to your dashboard resources (Settings → Dashboards → your dashboard → 
 https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap
 ```
 Type: `CSS stylesheet`
+
+---
+
+## Uninstall
+
+### Via HACS
+
+1. Open HACS → Themes
+2. Find **H.A.R.V.I.S. Theme** → click the three-dot menu → **Remove**
+3. Restart Home Assistant
+4. If you set the theme on your profile or dashboards, go back to Settings → Profile and switch to a different theme
+
+### Manual
+
+1. Delete `config/themes/harvis.yaml`
+2. Delete `config/www/jarvis/` (if you copied it)
+3. Restart Home Assistant
+4. Remove any dashboards or views you created using `lovelace/panels/jarvis-main.yaml`
 
 ---
 
@@ -106,12 +127,11 @@ window.hassConnection.then(({hass}) => {
 ## File Structure
 
 ```
-jarvis-ha-theme/
+harvis/
 ├── hacs.json
 ├── README.md
 ├── themes/
-│   └── jarvis/
-│       └── jarvis.yaml          # Full HA theme
+│   └── harvis.yaml              # Full HA theme
 ├── lovelace/
 │   ├── panels/
 │   │   └── jarvis-main.yaml     # Main HUD panel card
@@ -119,10 +139,11 @@ jarvis-ha-theme/
 │       └── example-room.yaml    # Example room view template
 ├── www/
 │   └── jarvis/
-│       └── hud.js               # HUD navigation logic (standalone JS)
+│       ├── hud.html             # HUD iframe page
+│       └── hud.js               # HUD navigation logic
 └── docs/
     └── screenshots/
-        └── preview.png          # Add your own screenshot here
+        └── preview.png
 ```
 
 ---
